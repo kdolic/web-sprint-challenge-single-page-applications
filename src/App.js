@@ -56,14 +56,75 @@ const [formValues, setFormValues] = useState(initialFormValues)
 const [formErrors, setFormErrors] = useState(initialFormErrors)
 const [disabled, setDisabled] = useState(initialDisabled)
 
+const postNewOrder = (newOrder) => {
+  axios.post('https://reqres.in/api/users', newOrder)
+  .then((res) => {
+    setOrders([res.data, ...orders]);
+    setFormValues(initialFormValues);
+  })
+  .catch((err) => {
+    console.log(err);
+    debugger;
+  })
+}
 
+
+const inputChange = (name, value) => {
+  yup
+  .reach(formSchema, name)
+  .validate(value)
+  .then(() => {
+    setFormErrors({
+      ...formErrors, [name]: ''
+    });
+  })
+  .catch((err) => {
+    setFormErrors({
+      ...formErrors, [name]: err.errors[0],
+    });
+  });
+  setFormValues({
+    ...formValues, [name]: value,
+  });
+};
+
+
+const formSubmit = () => {
+  const newOrder = {
+    fname: formValues.fname.trim(),
+    lname: formValues.lname.trim(),
+    email: formValues.email.trim(),
+    size: formValues.size.trim(),
+    extraCheese: formValues.extraCheese,
+    meatBalls: formValues.meatBalls,
+    pepperoni: formValues.pepperoni,
+    bacon: formValues.bacon,
+    beef: formValues.beef,
+    grilledChicken: formValues.grilledChicken,
+    mushrooms: formValues.mushrooms,
+    onions: formValues.onions,
+    greenPeppers: formValues.greenPeppers,
+    olives: formValues.olives,
+    tomatoes: formValues.tomatoes,
+    pineapples: formValues.pineapples,
+    specialInstruction: formValues.specialInstruction.trim()
+  }
+  postNewOrder(newOrder);
+}
+
+
+useEffect(() => {
+  formSchema.isValid(formValues).then((valid) => {
+    setDisabled(!valid);
+  })
+}, [formValues]);
 
 
   return (
-    <>
+    <div className='App'>
       <h1>Lambda Eats</h1>
       
-    </>
+    </div>
   );
 };
 export default App;
