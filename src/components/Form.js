@@ -22,6 +22,12 @@ export default function PizzaForm(props) {
                 <h2>Lambda Pizza</h2>
                 <h3>Build Your Own Pizza</h3>
                 
+                <div className='errors'>
+                    <div>{errors.fname}</div>
+                    <div>{errors.lname}</div>
+                    <div>{errors.email}</div>
+                </div>
+                
                 <label><h4>First Name*&nbsp;</h4></label><br></br>
                     <input name='fname' type='text' placeholder='Enter First Name...' maxLength='25' value={values.fname} onChange={onChange} /><br></br>
                 
@@ -91,17 +97,9 @@ export default function PizzaForm(props) {
                    <label>Special Instructions
                         <input name='specialInstruction' type='text' placeholder='Anything else you would like to add?' value={values.specialInstruction} onChange={onChange} />
                    </label>
-                   
-                   <div className='errors'>
-                    <div>{errors.fname}</div>
-                    <div>{errors.lname}</div>
-                    <div>{errors.email}</div>
-                    <div>{errors.password}</div>
-                    <div>{errors.role}</div>
-                   </div>
-                    <div className='submit'>
-                        <button id='submitButton' disabled={disabled}>Add To Order</button>
-                    </div>
+
+                    <button id='submitButton' disabled={disabled}>Add To Order</button>
+                    
             </div>
         </form>
     )

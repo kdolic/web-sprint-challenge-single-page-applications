@@ -6,6 +6,7 @@ import * as yup from 'yup';
 import formSchema from './validation/formSchema';
 import Form from './components/Form';
 import Home from './components/Home';
+import Order from './components/Order';
 
 const initialFormValues = {
   // Text Inputs
@@ -13,22 +14,24 @@ const initialFormValues = {
   lname: '',
   email: '',
   // Dropdown
-  size: '',
+  size: 'Medium',
   // Checkboxes
   //Meats
-  extraCheese: 'false',
-  meatBalls: 'false',
-  pepperoni: 'false',
-  bacon: 'false',
-  beef: 'false',
-  grilledChicken: 'false',
-  //Veggies
-  mushrooms: 'false',
-  onions: 'false',
-  greenPeppers: 'false',
-  olives: 'false',
-  tomatoes: 'false',
-  pineapples: 'false',
+  toppings: {
+    extraCheese: 'false',
+    meatBalls: 'false',
+    pepperoni: 'false',
+    bacon: 'false',
+    beef: 'false',
+    grilledChicken: 'false',
+    //Veggies
+    mushrooms: 'false',
+    onions: 'false',
+    greenPeppers: 'false',
+    olives: 'false',
+    tomatoes: 'false',
+    pineapples: 'false',
+  },
   //Instruction
   specialInstruction: ''
 }
@@ -40,8 +43,6 @@ const initialFormErrors = {
   email: '',
   // Dropdown
   size: '',
-  //Instruction
-  specialInstruction: ''
 }
 
 const initialOrders = []
@@ -142,6 +143,11 @@ return (
           errors={formErrors}
         />
       </Route>
+
+      {orders.map((order) => {
+        return <Order key={order.id} orderInfo={order} />;
+      })}
+
       <Route path='/'>
         <Home />
       </Route>
