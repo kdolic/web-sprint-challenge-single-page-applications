@@ -31,8 +31,16 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
 
 1. In 1-2 sentences, explain what React's `useRouteMatch` hook is used for.
+
+- This hook lets you add nested routes to your application such that you can change a single parameter in the URL without having to change the whole thing.
+
 1. How would you explain form validation to someone who has never programmed before?
+
+- Making sure to meet a certain minimum or standard that the form is asking for when filling it out. For example, making the password a minimum of 8 characters long including a number within it.
+
 1. In 1-2 sentences, define end to end testing.
+
+- End to end testing basically asks "can a user accomplish an action?". End to end tests focus on UI and mimic how a user might interact with an app, simulating real events like button clicks, scrolls, form submits, and the like. 
 
 ## Instructions
 
@@ -49,20 +57,20 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 Your finished project must include all of the following requirements:
 
-- [ ] A homepage that has a "/" route and links to your form (button, nav bar, or any other type of link is acceptable)
-- [ ] A form with a "/pizza" route
-- [ ] A name text input field
-- [ ] Validation for name - name must be at least 2 characters
-- [ ] A dropdown for pizza size
-- [ ] A checklist for toppings - at least 4 (hint: name each separately!)
-- [ ] Text input for special instructions
-- [ ] An Add to Order button that submits form and returns a database record of name, size, toppings and special instructions
+- [X] A homepage that has a "/" route and links to your form (button, nav bar, or any other type of link is acceptable)
+- [X] A form with a "/pizza" route
+- [X] A name text input field
+- [X] Validation for name - name must be at least 2 characters
+- [X] A dropdown for pizza size
+- [X] A checklist for toppings - at least 4 (hint: name each separately!)
+- [X] Text input for special instructions
+- [X] An Add to Order button that submits form and returns a database record of name, size, toppings and special instructions
 
 #### Testing MVP
 
 Implement the following tests in Cypress:
 
-- [ ] test that you can add text to the box
+- [X] test that you can add text to the box
 - [ ] test that you can select multiple toppings
 - [ ] test that you can submit the form
 
