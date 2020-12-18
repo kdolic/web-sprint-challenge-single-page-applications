@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect } from 'react';
 import {Route, Switch, Link } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
@@ -14,24 +14,22 @@ const initialFormValues = {
   lname: '',
   email: '',
   // Dropdown
-  size: 'Medium',
+  size: '',
   // Checkboxes
   //Meats
-  toppings: {
-    extraCheese: 'false',
-    meatBalls: 'false',
-    pepperoni: 'false',
-    bacon: 'false',
-    beef: 'false',
-    grilledChicken: 'false',
+    extraCheese: false,
+    meatBalls: false,
+    pepperoni: false,
+    bacon: false,
+    beef: false,
+    grilledChicken: false,
     //Veggies
-    mushrooms: 'false',
-    onions: 'false',
-    greenPeppers: 'false',
-    olives: 'false',
-    tomatoes: 'false',
-    pineapples: 'false',
-  },
+    mushrooms: false,
+    onions: false,
+    greenPeppers: false,
+    olives: false,
+    tomatoes: false,
+    pineapples: false,
   //Instruction
   specialInstruction: ''
 }
@@ -43,6 +41,21 @@ const initialFormErrors = {
   email: '',
   // Dropdown
   size: '',
+  extraCheese: '',
+  meatBalls: '',
+  pepperoni: '',
+  bacon: '',
+  beef: '',
+  grilledChicken: '',
+  //Veggies
+  mushrooms: '',
+  onions: '',
+  greenPeppers: '',
+  olives: '',
+  tomatoes: '',
+  pineapples: '',
+//Instruction
+specialInstruction: ''
 }
 
 const initialOrders = []
@@ -95,21 +108,11 @@ const formSubmit = () => {
     fname: formValues.fname.trim(),
     lname: formValues.lname.trim(),
     email: formValues.email.trim(),
-    size: formValues.size.trim(),
-    extraCheese: formValues.extraCheese,
-    meatBalls: formValues.meatBalls,
-    pepperoni: formValues.pepperoni,
-    bacon: formValues.bacon,
-    beef: formValues.beef,
-    grilledChicken: formValues.grilledChicken,
-    mushrooms: formValues.mushrooms,
-    onions: formValues.onions,
-    greenPeppers: formValues.greenPeppers,
-    olives: formValues.olives,
-    tomatoes: formValues.tomatoes,
-    pineapples: formValues.pineapples,
+    size: formValues.size,
+    toppings: ['extraCheese', 'meatBalls', 'pepperoni', 'bacon', 'beef', 'grilledChicken', 'mushrooms', 'onions', 'greenPeppers', 'olives', 'tomatoes', 'pineapples'].filter((topping) => formValues[topping]),
     specialInstruction: formValues.specialInstruction.trim()
   }
+  console.log(newOrder)
   postNewOrder(newOrder);
 }
 
@@ -120,7 +123,7 @@ useEffect(() => {
   })
 }, [formValues]);
 
-
+console.log(disabled)
 return (
   <div className="App">
     <header>
@@ -134,6 +137,7 @@ return (
     </header>
 
     <Switch>
+
       <Route path={'/pizza'}>
         <Form
           values={formValues}
@@ -142,13 +146,13 @@ return (
           disabled={disabled}
           errors={formErrors}
         />
-      </Route>
 
       {orders.map((order) => {
         return <Order key={order.id} orderInfo={order} />;
       })}
+      </Route>
 
-      <Route path='/'>
+      <Route exact path='/'>
         <Home />
       </Route>
     </Switch>

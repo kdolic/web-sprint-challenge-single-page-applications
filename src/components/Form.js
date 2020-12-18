@@ -40,12 +40,12 @@ export default function PizzaForm(props) {
                 <label><h4>Choice of Size*:&nbsp;</h4></label><br></br>
                     <select name='size' value={values.size} onChange={onChange}>
                         <option value=''>-------Select Size-------</option>
-                        <option value='Small'>Small(12")</option>
-                        <option value='Medium'>Medium(14")</option>
-                        <option value='Large'>Large(16")</option>
+                        <option value='Small(12")'>Small(12")</option>
+                        <option value='Medium(14")'>Medium(14")</option>
+                        <option value='Large(16")'>Large(16")</option>
                     </select>
 
-                    <label><h4>Add Toppings*&nbsp;</h4>
+                    <h4>Add Toppings*&nbsp;</h4>
                         <label>Extra Cheese
                             <input type='checkbox' name='extraCheese' value={values.extraCheese} onChange={onChange} />
                         </label>
@@ -78,21 +78,21 @@ export default function PizzaForm(props) {
                         </label>
 
                         <label>Green Peppers
-                            <input type='checkbox' name='meatBalls' value={values.meatBalls} onChange={onChange} />
+                            <input type='checkbox' name='greenPeppers' value={values.greenPeppers} onChange={onChange} />
                         </label>
 
                         <label>Olives
-                            <input type='checkbox' name='meatBalls' value={values.meatBalls} onChange={onChange} />
+                            <input type='checkbox' name='olives' value={values.olives} onChange={onChange} />
                         </label>
 
                         <label>Tomatoes
-                            <input type='checkbox' name='meatBalls' value={values.meatBalls} onChange={onChange} />
+                            <input type='checkbox' name='tomatoes' value={values.tomatoes} onChange={onChange} />
                         </label>
 
                         <label>Pineapples
-                            <input type='checkbox' name='meatBalls' value={values.meatBalls} onChange={onChange} />
+                            <input type='checkbox' name='pineapples' value={values.pineapples} onChange={onChange} />
                         </label>
-                    </label><br></br>
+                    
 
                    <label>Special Instructions
                         <input name='specialInstruction' type='text' placeholder='Anything else you would like to add?' value={values.specialInstruction} onChange={onChange} />
