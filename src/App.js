@@ -4,7 +4,7 @@ import axios from 'axios';
 import './App.css';
 import * as yup from 'yup';
 import formSchema from './validation/formSchema';
-import PizzaForm from './components/PizzaForm';
+import Form from './components/Form';
 import Home from './components/Home';
 
 const initialFormValues = {
@@ -120,11 +120,35 @@ useEffect(() => {
 }, [formValues]);
 
 
-  return (
-    <div className='App'>
-      <h1>Lambda Eats</h1>
-      
-    </div>
-  );
+return (
+  <div className="App">
+    <header>
+      <nav>
+        <h1>Lambda Eats</h1>
+          <Link to='/'>HOME</Link>
+          <Link to='/pizza'>ORDER</Link>
+          <Link to=''>ABOUT</Link>
+          <Link to=''>CONTACT</Link>
+      </nav>
+    </header>
+
+    <Switch>
+      <Route path={'/pizza'}>
+        <Form
+          values={formValues}
+          update={inputChange}
+          submit={formSubmit}
+          disabled={disabled}
+          errors={formErrors}
+        />
+      </Route>
+      <Route path='/'>
+        <Home />
+      </Route>
+    </Switch>
+
+
+  </div>
+);
 };
 export default App;

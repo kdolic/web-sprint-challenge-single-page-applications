@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function PizzaForm(props) {
-    const { values, update, submit, disabled, errors } = props
+    const { values, update, submit, disabled, errors} = props
    
 
     const onChange = event => {
@@ -41,59 +41,67 @@ export default function PizzaForm(props) {
 
                     <label><h4>Add Toppings*&nbsp;</h4>
                         <label>Extra Cheese
-                            <input type='checkbox' name='extraCheese' checked={values.extraCheese} onChange={onChange} />
+                            <input type='checkbox' name='extraCheese' value={values.extraCheese} onChange={onChange} />
                         </label>
                         <label>Meat Balls
-                            <input type='checkbox' name='meatBalls' checked={values.meatBalls} onChange={onChange} />
+                            <input type='checkbox' name='meatBalls' value={values.meatBalls} onChange={onChange} />
                         </label>
 
                         <label>Pepperoni
-                            <input type='checkbox' name='pepperoni' checked={values.pepperoni} onChange={onChange} />
+                            <input type='checkbox' name='pepperoni' value={values.pepperoni} onChange={onChange} />
                         </label>
 
                         <label>Bacon
-                            <input type='checkbox' name='bacon' checked={values.bacon} onChange={onChange} />
+                            <input type='checkbox' name='bacon' value={values.bacon} onChange={onChange} />
                         </label>
 
                         <label>Beef
-                            <input type='checkbox' name='beef' checked={values.beef} onChange={onChange} />
+                            <input type='checkbox' name='beef' value={values.beef} onChange={onChange} />
                         </label>
 
                         <label>Grilled Chicken
-                            <input type='checkbox' name='grilledChicken' checked={values.grilledChicken} onChange={onChange} />
+                            <input type='checkbox' name='grilledChicken' value={values.grilledChicken} onChange={onChange} />
                         </label>
 
                         <label>Mushrooms
-                            <input type='checkbox' name='mushrooms' checked={values.mushrooms} onChange={onChange} />
+                            <input type='checkbox' name='mushrooms' value={values.mushrooms} onChange={onChange} />
                         </label>
 
                         <label>Onions
-                            <input type='checkbox' name='onions' checked={values.onions} onChange={onChange} />
+                            <input type='checkbox' name='onions' value={values.onions} onChange={onChange} />
                         </label>
 
                         <label>Green Peppers
-                            <input type='checkbox' name='meatBalls' checked={values.meatBalls} onChange={onChange} />
+                            <input type='checkbox' name='meatBalls' value={values.meatBalls} onChange={onChange} />
                         </label>
 
                         <label>Olives
-                            <input type='checkbox' name='meatBalls' checked={values.meatBalls} onChange={onChange} />
+                            <input type='checkbox' name='meatBalls' value={values.meatBalls} onChange={onChange} />
                         </label>
 
                         <label>Tomatoes
-                            <input type='checkbox' name='meatBalls' checked={values.meatBalls} onChange={onChange} />
+                            <input type='checkbox' name='meatBalls' value={values.meatBalls} onChange={onChange} />
                         </label>
 
                         <label>Pineapples
-                            <input type='checkbox' name='meatBalls' checked={values.meatBalls} onChange={onChange} />
+                            <input type='checkbox' name='meatBalls' value={values.meatBalls} onChange={onChange} />
                         </label>
                     </label><br></br>
 
                    <label>Special Instructions
                         <input name='specialInstruction' type='text' placeholder='Anything else you would like to add?' value={values.specialInstruction} onChange={onChange} />
                    </label>
-                <div className='submit'>
-                    <button id='submitButton' disabled={disabled}>Add To Order</button>
-                </div>
+                   
+                   <div className='errors'>
+                    <div>{errors.fname}</div>
+                    <div>{errors.lname}</div>
+                    <div>{errors.email}</div>
+                    <div>{errors.password}</div>
+                    <div>{errors.role}</div>
+                   </div>
+                    <div className='submit'>
+                        <button id='submitButton' disabled={disabled}>Add To Order</button>
+                    </div>
             </div>
         </form>
     )
